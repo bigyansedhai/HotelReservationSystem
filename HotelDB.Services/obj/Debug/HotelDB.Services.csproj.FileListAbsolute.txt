@@ -1,0 +1,12 @@
+C:\Users\bigyan\source\repos\HotelDB.Services\bin\Debug\HotelDB.Services.dll
+C:\Users\bigyan\source\repos\HotelDB.Services\bin\Debug\HotelDB.Services.pdb
+C:\Users\bigyan\source\repos\HotelDB.Services\bin\Debug\HotelResrvation.DAL.dll
+C:\Users\bigyan\source\repos\HotelDB.Services\bin\Debug\EntityFramework.dll
+C:\Users\bigyan\source\repos\HotelDB.Services\bin\Debug\HotelResrvation.DAL.pdb
+C:\Users\bigyan\source\repos\HotelDB.Services\bin\Debug\HotelResrvation.DAL.dll.config
+C:\Users\bigyan\source\repos\HotelDB.Services\bin\Debug\EntityFramework.xml
+C:\Users\bigyan\source\repos\HotelDB.Services\obj\Debug\HotelDB.Services.csproj.AssemblyReference.cache
+C:\Users\bigyan\source\repos\HotelDB.Services\obj\Debug\HotelDB.Services.csproj.CoreCompileInputs.cache
+C:\Users\bigyan\source\repos\HotelDB.Services\obj\Debug\HotelDB.Services.csproj.CopyComplete
+C:\Users\bigyan\source\repos\HotelDB.Services\obj\Debug\HotelDB.Services.dll
+C:\Users\bigyan\source\repos\HotelDB.Services\obj\Debug\HotelDB.Services.pdb

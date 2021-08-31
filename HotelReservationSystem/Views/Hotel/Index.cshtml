@@ -1,0 +1,70 @@
+﻿@model List<HotelResrvation.DAL.Model.HotelStatu>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Hotel List</h2>
+
+<table id="hotelStatus" class="ui celled table">
+    <thead>
+        <tr>
+            <th>HotelId</th>
+            <th>HotelName</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.HotelId</td>
+                <td>@item.HotelName</td>
+                <td>
+                    <button class="btn btn-default"><span class="glyphicon glyphicon-eye-open"></span></button>
+                    <button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button>
+                    <button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>HotelId</th>
+            <th>HotelName</th>
+            <th>Action</th>
+        </tr>
+    </tfoot>
+</table>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.css" />
+@section scripts
+{
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.js"></script>
+     <script type="text/javascript">
+        $(document).ready(function () {
+            $('#hotelStatus').DataTable(
+                //{
+                //    "ajax": {
+                //        "url": "/Hotel/Index",
+                //        "type": "GET",
+                //        "dataType":"json"
+                //    },
+                //    "columns": [
+                //        { "data":"HotelId" },
+                //        { "data":"HotelName" },
+                //        { "data":"Action" }
+                //    ]
+                //}
+
+            );
+        })
+    </script>
+}
+
+
+
+
+
+

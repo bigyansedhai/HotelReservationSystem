@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7a65077e3c24428fb565a4bd56dbe1ee" Name="Diagram1">
+        <EntityTypeShape EntityType="HotelDBModel.AgentTbl" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDBModel.Booking" Width="1.5" PointX="8.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDBModel.BranchTbl" Width="1.5" PointX="3.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDBModel.CustomerTbl" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDBModel.FoodTbl" Width="1.5" PointX="5.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDBModel.HotelStatu" Width="1.5" PointX="1.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDBModel.InvoiceTbl" Width="1.5" PointX="5.25" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDBModel.ReservationTbl" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDBModel.RightInfo" Width="1.5" PointX="5.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDBModel.RoleANDRightTbl" Width="1.5" PointX="8" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDBModel.Room" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDBModel.RoomType" Width="1.5" PointX="3.75" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDBModel.SeasonTbl" Width="1.5" PointX="3" PointY="24.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDBModel.ServiceTbl" Width="1.5" PointX="7.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDBModel.sysdiagram" Width="1.5" PointX="8.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDBModel.TransactionTbl" Width="1.5" PointX="7.5" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDBModel.UserInfo" Width="1.5" PointX="3" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDBModel.UserRole" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <AssociationConnector Association="HotelDBModel.FK__Reservati__Agent__2022C2A6" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelDBModel.FK_User" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelDBModel.FK__Booking__Custome__1881A0DE" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelDBModel.FK__Booking__RoomId__1975C517" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelDBModel.FK__Reservati__BookI__1D4655FB" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelDBModel.FK__BranchTbl__Hotel__540C7B00" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelDBModel.FK__Reservati__Branc__1C5231C2" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelDBModel.FK__Room__BranchId__11D4A34F" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelDBModel.FK__InvoiceTb__Custo__6166761E" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelDBModel.FK__Reservati__Custo__1F2E9E6D" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelDBModel.FK_UserType" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelDBModel.FK__Transacti__Invoi__24E777C3" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelDBModel.FK__Reservati__RoomI__1E3A7A34" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelDBModel.FK__Reservati__Seaso__2116E6DF" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelDBModel.FK__Transaction__RId__23F3538A" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelDBModel.FK__RoleANDRi__Right__7167D3BD" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelDBModel.FK__RoleANDRi__RoleI__7073AF84" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelDBModel.FK__Room__RoomType__10E07F16" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelDBModel.FK__UserInfo__UserTy__65C116E7" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

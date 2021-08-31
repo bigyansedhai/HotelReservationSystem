@@ -1,0 +1,1310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HotelDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AgentTbl">
+          <Key>
+            <PropertyRef Name="AgentId" />
+          </Key>
+          <Property Name="AgentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+          <Property Name="Address" Type="varchar" MaxLength="255" />
+          <Property Name="Phone" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="255" />
+          <Property Name="UserName" Type="varchar" MaxLength="255" />
+          <Property Name="Password" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="status" Type="nvarchar" MaxLength="255" />
+          <Property Name="UserTypeId" Type="int" />
+        </EntityType>
+        <EntityType Name="Booking">
+          <Key>
+            <PropertyRef Name="BookId" />
+          </Key>
+          <Property Name="BookId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="RoomId" Type="int" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BranchTbl">
+          <Key>
+            <PropertyRef Name="BranchId" />
+          </Key>
+          <Property Name="BranchId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BranchName" Type="varchar" MaxLength="255" />
+          <Property Name="HotelId" Type="int" />
+          <Property Name="Address" Type="varchar(max)" />
+          <Property Name="City" Type="varchar" MaxLength="255" />
+          <Property Name="PhoneNumber" Type="decimal" Precision="10" Scale="0" />
+        </EntityType>
+        <EntityType Name="CustomerTbl">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar(max)" />
+          <Property Name="LastName" Type="varchar(max)" />
+          <Property Name="Street" Type="varchar" MaxLength="255" />
+          <Property Name="City" Type="varchar" MaxLength="255" />
+          <Property Name="Phone" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="255" />
+          <Property Name="Password" Type="varchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="UserTypeId" Type="int" />
+        </EntityType>
+        <EntityType Name="FoodTbl">
+          <Key>
+            <PropertyRef Name="FoodId" />
+          </Key>
+          <Property Name="FoodId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FoodName" Type="varchar" MaxLength="255" />
+          <Property Name="Quantity" Type="varchar" MaxLength="255" />
+          <Property Name="Price" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Description" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="HotelStatus">
+          <Key>
+            <PropertyRef Name="HotelId" />
+          </Key>
+          <Property Name="HotelId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HotelName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="InvoiceTbl">
+          <Key>
+            <PropertyRef Name="InvoiceId" />
+          </Key>
+          <Property Name="InvoiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceNumber" Type="varchar" MaxLength="10" />
+          <Property Name="InvoiceDate" Type="datetime" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="TotalCost" Type="money" />
+          <Property Name="Discount" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Vat" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="GrossAmount" Type="money" />
+          <Property Name="NetAmount" Type="money" />
+          <Property Name="Remarks" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="ReservationTbl">
+          <Key>
+            <PropertyRef Name="RId" />
+          </Key>
+          <Property Name="RId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReservationName" Type="varchar" MaxLength="255" />
+          <Property Name="ReservationDate" Type="datetime" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="BookId" Type="int" />
+          <Property Name="RoomId" Type="int" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="AgentId" Type="int" />
+          <Property Name="SeasonId" Type="int" />
+          <Property Name="CheckIn" Type="datetime" />
+          <Property Name="CheckOut" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RightInfo">
+          <Key>
+            <PropertyRef Name="RightId" />
+          </Key>
+          <Property Name="RightId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="RoleANDRightTbl">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="RightId" Type="int" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="RoomId" />
+          </Key>
+          <Property Name="RoomId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoomNumber" Type="varchar" MaxLength="100" />
+          <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="RoomType" Type="int" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="Smoking" Type="bit" />
+        </EntityType>
+        <EntityType Name="RoomType">
+          <Key>
+            <PropertyRef Name="RoomTypeId" />
+          </Key>
+          <Property Name="RoomTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoomName" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="SeasonTbl">
+          <Key>
+            <PropertyRef Name="SeasonId" />
+          </Key>
+          <Property Name="SeasonId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SeasonName" Type="varchar" MaxLength="255" />
+          <Property Name="BeginDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="Percentage" Type="decimal" Precision="4" Scale="2" />
+        </EntityType>
+        <EntityType Name="ServiceTbl">
+          <Key>
+            <PropertyRef Name="ServiceId" />
+          </Key>
+          <Property Name="ServiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServiceName" Type="varchar" MaxLength="255" />
+          <Property Name="rate" Type="money" />
+          <Property Name="Description" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TransactionTbl">
+          <Key>
+            <PropertyRef Name="TId" />
+          </Key>
+          <Property Name="TId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RId" Type="int" />
+          <Property Name="InvoiceId" Type="int" />
+          <Property Name="BeginDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserInfos">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Address" Type="varchar" MaxLength="100" />
+          <Property Name="PhoneNumber" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="UserName" Type="varchar" MaxLength="255" />
+          <Property Name="Password" Type="varchar" MaxLength="100" />
+          <Property Name="UserType" Type="int" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK__Booking__Custome__1881A0DE">
+          <End Role="CustomerTbl" Type="Self.CustomerTbl" Multiplicity="0..1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerTbl">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Booking__RoomId__1975C517">
+          <End Role="Room" Type="Self.Room" Multiplicity="0..1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BranchTbl__Hotel__540C7B00">
+          <End Role="HotelStatus" Type="Self.HotelStatus" Multiplicity="0..1" />
+          <End Role="BranchTbl" Type="Self.BranchTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HotelStatus">
+              <PropertyRef Name="HotelId" />
+            </Principal>
+            <Dependent Role="BranchTbl">
+              <PropertyRef Name="HotelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InvoiceTb__Custo__6166761E">
+          <End Role="CustomerTbl" Type="Self.CustomerTbl" Multiplicity="0..1" />
+          <End Role="InvoiceTbl" Type="Self.InvoiceTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerTbl">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="InvoiceTbl">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reservati__Agent__2022C2A6">
+          <End Role="AgentTbl" Type="Self.AgentTbl" Multiplicity="0..1" />
+          <End Role="ReservationTbl" Type="Self.ReservationTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgentTbl">
+              <PropertyRef Name="AgentId" />
+            </Principal>
+            <Dependent Role="ReservationTbl">
+              <PropertyRef Name="AgentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reservati__BookI__1D4655FB">
+          <End Role="Booking" Type="Self.Booking" Multiplicity="0..1" />
+          <End Role="ReservationTbl" Type="Self.ReservationTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Booking">
+              <PropertyRef Name="BookId" />
+            </Principal>
+            <Dependent Role="ReservationTbl">
+              <PropertyRef Name="BookId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reservati__Branc__1C5231C2">
+          <End Role="BranchTbl" Type="Self.BranchTbl" Multiplicity="0..1" />
+          <End Role="ReservationTbl" Type="Self.ReservationTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BranchTbl">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="ReservationTbl">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reservati__Custo__1F2E9E6D">
+          <End Role="CustomerTbl" Type="Self.CustomerTbl" Multiplicity="0..1" />
+          <End Role="ReservationTbl" Type="Self.ReservationTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerTbl">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="ReservationTbl">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reservati__RoomI__1E3A7A34">
+          <End Role="Room" Type="Self.Room" Multiplicity="0..1" />
+          <End Role="ReservationTbl" Type="Self.ReservationTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="ReservationTbl">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reservati__Seaso__2116E6DF">
+          <End Role="SeasonTbl" Type="Self.SeasonTbl" Multiplicity="0..1" />
+          <End Role="ReservationTbl" Type="Self.ReservationTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SeasonTbl">
+              <PropertyRef Name="SeasonId" />
+            </Principal>
+            <Dependent Role="ReservationTbl">
+              <PropertyRef Name="SeasonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RoleANDRi__Right__7167D3BD">
+          <End Role="RightInfo" Type="Self.RightInfo" Multiplicity="0..1" />
+          <End Role="RoleANDRightTbl" Type="Self.RoleANDRightTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RightInfo">
+              <PropertyRef Name="RightId" />
+            </Principal>
+            <Dependent Role="RoleANDRightTbl">
+              <PropertyRef Name="RightId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RoleANDRi__RoleI__7073AF84">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+          <End Role="RoleANDRightTbl" Type="Self.RoleANDRightTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="RoleANDRightTbl">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Room__BranchId__11D4A34F">
+          <End Role="BranchTbl" Type="Self.BranchTbl" Multiplicity="0..1" />
+          <End Role="Room" Type="Self.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BranchTbl">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Room__RoomType__10E07F16">
+          <End Role="RoomType" Type="Self.RoomType" Multiplicity="0..1" />
+          <End Role="Room" Type="Self.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoomType">
+              <PropertyRef Name="RoomTypeId" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="RoomType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacti__Invoi__24E777C3">
+          <End Role="InvoiceTbl" Type="Self.InvoiceTbl" Multiplicity="0..1" />
+          <End Role="TransactionTbl" Type="Self.TransactionTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvoiceTbl">
+              <PropertyRef Name="InvoiceId" />
+            </Principal>
+            <Dependent Role="TransactionTbl">
+              <PropertyRef Name="InvoiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transaction__RId__23F3538A">
+          <End Role="ReservationTbl" Type="Self.ReservationTbl" Multiplicity="0..1" />
+          <End Role="TransactionTbl" Type="Self.TransactionTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReservationTbl">
+              <PropertyRef Name="RId" />
+            </Principal>
+            <Dependent Role="TransactionTbl">
+              <PropertyRef Name="RId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserInfo__UserTy__65C116E7">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+          <End Role="UserInfos" Type="Self.UserInfos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="UserInfos">
+              <PropertyRef Name="UserType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+          <End Role="AgentTbl" Type="Self.AgentTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="AgentTbl">
+              <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserType">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+          <End Role="CustomerTbl" Type="Self.CustomerTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="CustomerTbl">
+              <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HotelDBModelStoreContainer">
+          <EntitySet Name="AgentTbl" EntityType="Self.AgentTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BranchTbl" EntityType="Self.BranchTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerTbl" EntityType="Self.CustomerTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FoodTbl" EntityType="Self.FoodTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HotelStatus" EntityType="Self.HotelStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvoiceTbl" EntityType="Self.InvoiceTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReservationTbl" EntityType="Self.ReservationTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RightInfo" EntityType="Self.RightInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleANDRightTbl" EntityType="Self.RoleANDRightTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoomType" EntityType="Self.RoomType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SeasonTbl" EntityType="Self.SeasonTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceTbl" EntityType="Self.ServiceTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionTbl" EntityType="Self.TransactionTbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfos" EntityType="Self.UserInfos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Booking__Custome__1881A0DE" Association="Self.FK__Booking__Custome__1881A0DE">
+            <End Role="CustomerTbl" EntitySet="CustomerTbl" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Booking__RoomId__1975C517" Association="Self.FK__Booking__RoomId__1975C517">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BranchTbl__Hotel__540C7B00" Association="Self.FK__BranchTbl__Hotel__540C7B00">
+            <End Role="HotelStatus" EntitySet="HotelStatus" />
+            <End Role="BranchTbl" EntitySet="BranchTbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InvoiceTb__Custo__6166761E" Association="Self.FK__InvoiceTb__Custo__6166761E">
+            <End Role="CustomerTbl" EntitySet="CustomerTbl" />
+            <End Role="InvoiceTbl" EntitySet="InvoiceTbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reservati__Agent__2022C2A6" Association="Self.FK__Reservati__Agent__2022C2A6">
+            <End Role="AgentTbl" EntitySet="AgentTbl" />
+            <End Role="ReservationTbl" EntitySet="ReservationTbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reservati__BookI__1D4655FB" Association="Self.FK__Reservati__BookI__1D4655FB">
+            <End Role="Booking" EntitySet="Booking" />
+            <End Role="ReservationTbl" EntitySet="ReservationTbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reservati__Branc__1C5231C2" Association="Self.FK__Reservati__Branc__1C5231C2">
+            <End Role="BranchTbl" EntitySet="BranchTbl" />
+            <End Role="ReservationTbl" EntitySet="ReservationTbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reservati__Custo__1F2E9E6D" Association="Self.FK__Reservati__Custo__1F2E9E6D">
+            <End Role="CustomerTbl" EntitySet="CustomerTbl" />
+            <End Role="ReservationTbl" EntitySet="ReservationTbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reservati__RoomI__1E3A7A34" Association="Self.FK__Reservati__RoomI__1E3A7A34">
+            <End Role="Room" EntitySet="Room" />
+            <End Role="ReservationTbl" EntitySet="ReservationTbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reservati__Seaso__2116E6DF" Association="Self.FK__Reservati__Seaso__2116E6DF">
+            <End Role="SeasonTbl" EntitySet="SeasonTbl" />
+            <End Role="ReservationTbl" EntitySet="ReservationTbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RoleANDRi__Right__7167D3BD" Association="Self.FK__RoleANDRi__Right__7167D3BD">
+            <End Role="RightInfo" EntitySet="RightInfo" />
+            <End Role="RoleANDRightTbl" EntitySet="RoleANDRightTbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RoleANDRi__RoleI__7073AF84" Association="Self.FK__RoleANDRi__RoleI__7073AF84">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="RoleANDRightTbl" EntitySet="RoleANDRightTbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Room__BranchId__11D4A34F" Association="Self.FK__Room__BranchId__11D4A34F">
+            <End Role="BranchTbl" EntitySet="BranchTbl" />
+            <End Role="Room" EntitySet="Room" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Room__RoomType__10E07F16" Association="Self.FK__Room__RoomType__10E07F16">
+            <End Role="RoomType" EntitySet="RoomType" />
+            <End Role="Room" EntitySet="Room" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__Invoi__24E777C3" Association="Self.FK__Transacti__Invoi__24E777C3">
+            <End Role="InvoiceTbl" EntitySet="InvoiceTbl" />
+            <End Role="TransactionTbl" EntitySet="TransactionTbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transaction__RId__23F3538A" Association="Self.FK__Transaction__RId__23F3538A">
+            <End Role="ReservationTbl" EntitySet="ReservationTbl" />
+            <End Role="TransactionTbl" EntitySet="TransactionTbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserInfo__UserTy__65C116E7" Association="Self.FK__UserInfo__UserTy__65C116E7">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="UserInfos" EntitySet="UserInfos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User" Association="Self.FK_User">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="AgentTbl" EntitySet="AgentTbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserType" Association="Self.FK_UserType">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="CustomerTbl" EntitySet="CustomerTbl" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HotelDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AgentTbl">
+          <Key>
+            <PropertyRef Name="AgentId" />
+          </Key>
+          <Property Name="AgentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="UserTypeId" Type="Int32" />
+          <NavigationProperty Name="ReservationTbls" Relationship="Self.FK__Reservati__Agent__2022C2A6" FromRole="AgentTbl" ToRole="ReservationTbl" />
+          <NavigationProperty Name="UserRole" Relationship="Self.FK_User" FromRole="AgentTbl" ToRole="UserRole" />
+        </EntityType>
+        <EntityType Name="Booking">
+          <Key>
+            <PropertyRef Name="BookId" />
+          </Key>
+          <Property Name="BookId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="RoomId" Type="Int32" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CustomerTbl" Relationship="Self.FK__Booking__Custome__1881A0DE" FromRole="Booking" ToRole="CustomerTbl" />
+          <NavigationProperty Name="Room" Relationship="Self.FK__Booking__RoomId__1975C517" FromRole="Booking" ToRole="Room" />
+          <NavigationProperty Name="ReservationTbls" Relationship="Self.FK__Reservati__BookI__1D4655FB" FromRole="Booking" ToRole="ReservationTbl" />
+        </EntityType>
+        <EntityType Name="BranchTbl">
+          <Key>
+            <PropertyRef Name="BranchId" />
+          </Key>
+          <Property Name="BranchId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BranchName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="HotelId" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="Decimal" Precision="10" Scale="0" />
+          <NavigationProperty Name="HotelStatu" Relationship="Self.FK__BranchTbl__Hotel__540C7B00" FromRole="BranchTbl" ToRole="HotelStatus" />
+          <NavigationProperty Name="ReservationTbls" Relationship="Self.FK__Reservati__Branc__1C5231C2" FromRole="BranchTbl" ToRole="ReservationTbl" />
+          <NavigationProperty Name="Rooms" Relationship="Self.FK__Room__BranchId__11D4A34F" FromRole="BranchTbl" ToRole="Room" />
+        </EntityType>
+        <EntityType Name="CustomerTbl">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Street" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UserTypeId" Type="Int32" />
+          <NavigationProperty Name="Bookings" Relationship="Self.FK__Booking__Custome__1881A0DE" FromRole="CustomerTbl" ToRole="Booking" />
+          <NavigationProperty Name="InvoiceTbls" Relationship="Self.FK__InvoiceTb__Custo__6166761E" FromRole="CustomerTbl" ToRole="InvoiceTbl" />
+          <NavigationProperty Name="ReservationTbls" Relationship="Self.FK__Reservati__Custo__1F2E9E6D" FromRole="CustomerTbl" ToRole="ReservationTbl" />
+          <NavigationProperty Name="UserRole" Relationship="Self.FK_UserType" FromRole="CustomerTbl" ToRole="UserRole" />
+        </EntityType>
+        <EntityType Name="FoodTbl">
+          <Key>
+            <PropertyRef Name="FoodId" />
+          </Key>
+          <Property Name="FoodId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FoodName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="HotelStatu">
+          <Key>
+            <PropertyRef Name="HotelId" />
+          </Key>
+          <Property Name="HotelId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HotelName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BranchTbls" Relationship="Self.FK__BranchTbl__Hotel__540C7B00" FromRole="HotelStatus" ToRole="BranchTbl" />
+        </EntityType>
+        <EntityType Name="InvoiceTbl">
+          <Key>
+            <PropertyRef Name="InvoiceId" />
+          </Key>
+          <Property Name="InvoiceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="InvoiceDate" Type="DateTime" Precision="3" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="TotalCost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Discount" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Vat" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="GrossAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="NetAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CustomerTbl" Relationship="Self.FK__InvoiceTb__Custo__6166761E" FromRole="InvoiceTbl" ToRole="CustomerTbl" />
+          <NavigationProperty Name="TransactionTbls" Relationship="Self.FK__Transacti__Invoi__24E777C3" FromRole="InvoiceTbl" ToRole="TransactionTbl" />
+        </EntityType>
+        <EntityType Name="ReservationTbl">
+          <Key>
+            <PropertyRef Name="RId" />
+          </Key>
+          <Property Name="RId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReservationName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ReservationDate" Type="DateTime" Precision="3" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="BookId" Type="Int32" />
+          <Property Name="RoomId" Type="Int32" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="AgentId" Type="Int32" />
+          <Property Name="SeasonId" Type="Int32" />
+          <Property Name="CheckIn" Type="DateTime" Precision="3" />
+          <Property Name="CheckOut" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AgentTbl" Relationship="Self.FK__Reservati__Agent__2022C2A6" FromRole="ReservationTbl" ToRole="AgentTbl" />
+          <NavigationProperty Name="Booking" Relationship="Self.FK__Reservati__BookI__1D4655FB" FromRole="ReservationTbl" ToRole="Booking" />
+          <NavigationProperty Name="BranchTbl" Relationship="Self.FK__Reservati__Branc__1C5231C2" FromRole="ReservationTbl" ToRole="BranchTbl" />
+          <NavigationProperty Name="CustomerTbl" Relationship="Self.FK__Reservati__Custo__1F2E9E6D" FromRole="ReservationTbl" ToRole="CustomerTbl" />
+          <NavigationProperty Name="Room" Relationship="Self.FK__Reservati__RoomI__1E3A7A34" FromRole="ReservationTbl" ToRole="Room" />
+          <NavigationProperty Name="SeasonTbl" Relationship="Self.FK__Reservati__Seaso__2116E6DF" FromRole="ReservationTbl" ToRole="SeasonTbl" />
+          <NavigationProperty Name="TransactionTbls" Relationship="Self.FK__Transaction__RId__23F3538A" FromRole="ReservationTbl" ToRole="TransactionTbl" />
+        </EntityType>
+        <EntityType Name="RightInfo">
+          <Key>
+            <PropertyRef Name="RightId" />
+          </Key>
+          <Property Name="RightId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RoleANDRightTbls" Relationship="Self.FK__RoleANDRi__Right__7167D3BD" FromRole="RightInfo" ToRole="RoleANDRightTbl" />
+        </EntityType>
+        <EntityType Name="RoleANDRightTbl">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="RightId" Type="Int32" />
+          <NavigationProperty Name="RightInfo" Relationship="Self.FK__RoleANDRi__Right__7167D3BD" FromRole="RoleANDRightTbl" ToRole="RightInfo" />
+          <NavigationProperty Name="UserRole" Relationship="Self.FK__RoleANDRi__RoleI__7073AF84" FromRole="RoleANDRightTbl" ToRole="UserRole" />
+        </EntityType>
+        <EntityType Name="Room">
+          <Key>
+            <PropertyRef Name="RoomId" />
+          </Key>
+          <Property Name="RoomId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoomNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="RoomType" Type="Int32" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="Smoking" Type="Boolean" />
+          <NavigationProperty Name="Bookings" Relationship="Self.FK__Booking__RoomId__1975C517" FromRole="Room" ToRole="Booking" />
+          <NavigationProperty Name="BranchTbl" Relationship="Self.FK__Room__BranchId__11D4A34F" FromRole="Room" ToRole="BranchTbl" />
+          <NavigationProperty Name="ReservationTbls" Relationship="Self.FK__Reservati__RoomI__1E3A7A34" FromRole="Room" ToRole="ReservationTbl" />
+          <NavigationProperty Name="RoomType1" Relationship="Self.FK__Room__RoomType__10E07F16" FromRole="Room" ToRole="RoomType" />
+        </EntityType>
+        <EntityType Name="RoomType">
+          <Key>
+            <PropertyRef Name="RoomTypeId" />
+          </Key>
+          <Property Name="RoomTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoomName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Rooms" Relationship="Self.FK__Room__RoomType__10E07F16" FromRole="RoomType" ToRole="Room" />
+        </EntityType>
+        <EntityType Name="SeasonTbl">
+          <Key>
+            <PropertyRef Name="SeasonId" />
+          </Key>
+          <Property Name="SeasonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SeasonName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="BeginDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="Percentage" Type="Decimal" Precision="4" Scale="2" />
+          <NavigationProperty Name="ReservationTbls" Relationship="Self.FK__Reservati__Seaso__2116E6DF" FromRole="SeasonTbl" ToRole="ReservationTbl" />
+        </EntityType>
+        <EntityType Name="ServiceTbl">
+          <Key>
+            <PropertyRef Name="ServiceId" />
+          </Key>
+          <Property Name="ServiceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServiceName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="rate" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TransactionTbl">
+          <Key>
+            <PropertyRef Name="TId" />
+          </Key>
+          <Property Name="TId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RId" Type="Int32" />
+          <Property Name="InvoiceId" Type="Int32" />
+          <Property Name="BeginDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="InvoiceTbl" Relationship="Self.FK__Transacti__Invoi__24E777C3" FromRole="TransactionTbl" ToRole="InvoiceTbl" />
+          <NavigationProperty Name="ReservationTbl" Relationship="Self.FK__Transaction__RId__23F3538A" FromRole="TransactionTbl" ToRole="ReservationTbl" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserType" Type="Int32" />
+          <NavigationProperty Name="UserRole" Relationship="Self.FK__UserInfo__UserTy__65C116E7" FromRole="UserInfos" ToRole="UserRole" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AgentTbls" Relationship="Self.FK_User" FromRole="UserRole" ToRole="AgentTbl" />
+          <NavigationProperty Name="CustomerTbls" Relationship="Self.FK_UserType" FromRole="UserRole" ToRole="CustomerTbl" />
+          <NavigationProperty Name="RoleANDRightTbls" Relationship="Self.FK__RoleANDRi__RoleI__7073AF84" FromRole="UserRole" ToRole="RoleANDRightTbl" />
+          <NavigationProperty Name="UserInfos" Relationship="Self.FK__UserInfo__UserTy__65C116E7" FromRole="UserRole" ToRole="UserInfos" />
+        </EntityType>
+        <Association Name="FK__Reservati__Agent__2022C2A6">
+          <End Role="AgentTbl" Type="Self.AgentTbl" Multiplicity="0..1" />
+          <End Role="ReservationTbl" Type="Self.ReservationTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgentTbl">
+              <PropertyRef Name="AgentId" />
+            </Principal>
+            <Dependent Role="ReservationTbl">
+              <PropertyRef Name="AgentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+          <End Role="AgentTbl" Type="Self.AgentTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="AgentTbl">
+              <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Booking__Custome__1881A0DE">
+          <End Role="CustomerTbl" Type="Self.CustomerTbl" Multiplicity="0..1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerTbl">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Booking__RoomId__1975C517">
+          <End Role="Room" Type="Self.Room" Multiplicity="0..1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reservati__BookI__1D4655FB">
+          <End Role="Booking" Type="Self.Booking" Multiplicity="0..1" />
+          <End Role="ReservationTbl" Type="Self.ReservationTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Booking">
+              <PropertyRef Name="BookId" />
+            </Principal>
+            <Dependent Role="ReservationTbl">
+              <PropertyRef Name="BookId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BranchTbl__Hotel__540C7B00">
+          <End Role="HotelStatus" Type="Self.HotelStatu" Multiplicity="0..1" />
+          <End Role="BranchTbl" Type="Self.BranchTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HotelStatus">
+              <PropertyRef Name="HotelId" />
+            </Principal>
+            <Dependent Role="BranchTbl">
+              <PropertyRef Name="HotelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reservati__Branc__1C5231C2">
+          <End Role="BranchTbl" Type="Self.BranchTbl" Multiplicity="0..1" />
+          <End Role="ReservationTbl" Type="Self.ReservationTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BranchTbl">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="ReservationTbl">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Room__BranchId__11D4A34F">
+          <End Role="BranchTbl" Type="Self.BranchTbl" Multiplicity="0..1" />
+          <End Role="Room" Type="Self.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BranchTbl">
+              <PropertyRef Name="BranchId" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="BranchId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InvoiceTb__Custo__6166761E">
+          <End Role="CustomerTbl" Type="Self.CustomerTbl" Multiplicity="0..1" />
+          <End Role="InvoiceTbl" Type="Self.InvoiceTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerTbl">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="InvoiceTbl">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reservati__Custo__1F2E9E6D">
+          <End Role="CustomerTbl" Type="Self.CustomerTbl" Multiplicity="0..1" />
+          <End Role="ReservationTbl" Type="Self.ReservationTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerTbl">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="ReservationTbl">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserType">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+          <End Role="CustomerTbl" Type="Self.CustomerTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="CustomerTbl">
+              <PropertyRef Name="UserTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacti__Invoi__24E777C3">
+          <End Role="InvoiceTbl" Type="Self.InvoiceTbl" Multiplicity="0..1" />
+          <End Role="TransactionTbl" Type="Self.TransactionTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvoiceTbl">
+              <PropertyRef Name="InvoiceId" />
+            </Principal>
+            <Dependent Role="TransactionTbl">
+              <PropertyRef Name="InvoiceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reservati__RoomI__1E3A7A34">
+          <End Role="Room" Type="Self.Room" Multiplicity="0..1" />
+          <End Role="ReservationTbl" Type="Self.ReservationTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="RoomId" />
+            </Principal>
+            <Dependent Role="ReservationTbl">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reservati__Seaso__2116E6DF">
+          <End Role="SeasonTbl" Type="Self.SeasonTbl" Multiplicity="0..1" />
+          <End Role="ReservationTbl" Type="Self.ReservationTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SeasonTbl">
+              <PropertyRef Name="SeasonId" />
+            </Principal>
+            <Dependent Role="ReservationTbl">
+              <PropertyRef Name="SeasonId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transaction__RId__23F3538A">
+          <End Role="ReservationTbl" Type="Self.ReservationTbl" Multiplicity="0..1" />
+          <End Role="TransactionTbl" Type="Self.TransactionTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReservationTbl">
+              <PropertyRef Name="RId" />
+            </Principal>
+            <Dependent Role="TransactionTbl">
+              <PropertyRef Name="RId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RoleANDRi__Right__7167D3BD">
+          <End Role="RightInfo" Type="Self.RightInfo" Multiplicity="0..1" />
+          <End Role="RoleANDRightTbl" Type="Self.RoleANDRightTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RightInfo">
+              <PropertyRef Name="RightId" />
+            </Principal>
+            <Dependent Role="RoleANDRightTbl">
+              <PropertyRef Name="RightId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__RoleANDRi__RoleI__7073AF84">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+          <End Role="RoleANDRightTbl" Type="Self.RoleANDRightTbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="RoleANDRightTbl">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Room__RoomType__10E07F16">
+          <End Role="RoomType" Type="Self.RoomType" Multiplicity="0..1" />
+          <End Role="Room" Type="Self.Room" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoomType">
+              <PropertyRef Name="RoomTypeId" />
+            </Principal>
+            <Dependent Role="Room">
+              <PropertyRef Name="RoomType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserInfo__UserTy__65C116E7">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+          <End Role="UserInfos" Type="Self.UserInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="UserInfos">
+              <PropertyRef Name="UserType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HotelDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AgentTbls" EntityType="Self.AgentTbl" />
+          <EntitySet Name="Bookings" EntityType="Self.Booking" />
+          <EntitySet Name="BranchTbls" EntityType="Self.BranchTbl" />
+          <EntitySet Name="CustomerTbls" EntityType="Self.CustomerTbl" />
+          <EntitySet Name="FoodTbls" EntityType="Self.FoodTbl" />
+          <EntitySet Name="HotelStatus" EntityType="Self.HotelStatu" />
+          <EntitySet Name="InvoiceTbls" EntityType="Self.InvoiceTbl" />
+          <EntitySet Name="ReservationTbls" EntityType="Self.ReservationTbl" />
+          <EntitySet Name="RightInfoes" EntityType="Self.RightInfo" />
+          <EntitySet Name="RoleANDRightTbls" EntityType="Self.RoleANDRightTbl" />
+          <EntitySet Name="Rooms" EntityType="Self.Room" />
+          <EntitySet Name="RoomTypes" EntityType="Self.RoomType" />
+          <EntitySet Name="SeasonTbls" EntityType="Self.SeasonTbl" />
+          <EntitySet Name="ServiceTbls" EntityType="Self.ServiceTbl" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TransactionTbls" EntityType="Self.TransactionTbl" />
+          <EntitySet Name="UserInfos" EntityType="Self.UserInfo" />
+          <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+          <AssociationSet Name="FK__Reservati__Agent__2022C2A6" Association="Self.FK__Reservati__Agent__2022C2A6">
+            <End Role="AgentTbl" EntitySet="AgentTbls" />
+            <End Role="ReservationTbl" EntitySet="ReservationTbls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User" Association="Self.FK_User">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="AgentTbl" EntitySet="AgentTbls" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Booking__Custome__1881A0DE" Association="Self.FK__Booking__Custome__1881A0DE">
+            <End Role="CustomerTbl" EntitySet="CustomerTbls" />
+            <End Role="Booking" EntitySet="Bookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Booking__RoomId__1975C517" Association="Self.FK__Booking__RoomId__1975C517">
+            <End Role="Room" EntitySet="Rooms" />
+            <End Role="Booking" EntitySet="Bookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reservati__BookI__1D4655FB" Association="Self.FK__Reservati__BookI__1D4655FB">
+            <End Role="Booking" EntitySet="Bookings" />
+            <End Role="ReservationTbl" EntitySet="ReservationTbls" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BranchTbl__Hotel__540C7B00" Association="Self.FK__BranchTbl__Hotel__540C7B00">
+            <End Role="HotelStatus" EntitySet="HotelStatus" />
+            <End Role="BranchTbl" EntitySet="BranchTbls" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reservati__Branc__1C5231C2" Association="Self.FK__Reservati__Branc__1C5231C2">
+            <End Role="BranchTbl" EntitySet="BranchTbls" />
+            <End Role="ReservationTbl" EntitySet="ReservationTbls" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Room__BranchId__11D4A34F" Association="Self.FK__Room__BranchId__11D4A34F">
+            <End Role="BranchTbl" EntitySet="BranchTbls" />
+            <End Role="Room" EntitySet="Rooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InvoiceTb__Custo__6166761E" Association="Self.FK__InvoiceTb__Custo__6166761E">
+            <End Role="CustomerTbl" EntitySet="CustomerTbls" />
+            <End Role="InvoiceTbl" EntitySet="InvoiceTbls" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reservati__Custo__1F2E9E6D" Association="Self.FK__Reservati__Custo__1F2E9E6D">
+            <End Role="CustomerTbl" EntitySet="CustomerTbls" />
+            <End Role="ReservationTbl" EntitySet="ReservationTbls" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserType" Association="Self.FK_UserType">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="CustomerTbl" EntitySet="CustomerTbls" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacti__Invoi__24E777C3" Association="Self.FK__Transacti__Invoi__24E777C3">
+            <End Role="InvoiceTbl" EntitySet="InvoiceTbls" />
+            <End Role="TransactionTbl" EntitySet="TransactionTbls" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reservati__RoomI__1E3A7A34" Association="Self.FK__Reservati__RoomI__1E3A7A34">
+            <End Role="Room" EntitySet="Rooms" />
+            <End Role="ReservationTbl" EntitySet="ReservationTbls" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reservati__Seaso__2116E6DF" Association="Self.FK__Reservati__Seaso__2116E6DF">
+            <End Role="SeasonTbl" EntitySet="SeasonTbls" />
+            <End Role="ReservationTbl" EntitySet="ReservationTbls" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transaction__RId__23F3538A" Association="Self.FK__Transaction__RId__23F3538A">
+            <End Role="ReservationTbl" EntitySet="ReservationTbls" />
+            <End Role="TransactionTbl" EntitySet="TransactionTbls" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RoleANDRi__Right__7167D3BD" Association="Self.FK__RoleANDRi__Right__7167D3BD">
+            <End Role="RightInfo" EntitySet="RightInfoes" />
+            <End Role="RoleANDRightTbl" EntitySet="RoleANDRightTbls" />
+          </AssociationSet>
+          <AssociationSet Name="FK__RoleANDRi__RoleI__7073AF84" Association="Self.FK__RoleANDRi__RoleI__7073AF84">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="RoleANDRightTbl" EntitySet="RoleANDRightTbls" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Room__RoomType__10E07F16" Association="Self.FK__Room__RoomType__10E07F16">
+            <End Role="RoomType" EntitySet="RoomTypes" />
+            <End Role="Room" EntitySet="Rooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserInfo__UserTy__65C116E7" Association="Self.FK__UserInfo__UserTy__65C116E7">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="UserInfos" EntitySet="UserInfos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HotelDBModelStoreContainer" CdmEntityContainer="HotelDBEntities">
+          <EntitySetMapping Name="AgentTbls">
+            <EntityTypeMapping TypeName="HotelDBModel.AgentTbl">
+              <MappingFragment StoreEntitySet="AgentTbl">
+                <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bookings">
+            <EntityTypeMapping TypeName="HotelDBModel.Booking">
+              <MappingFragment StoreEntitySet="Booking">
+                <ScalarProperty Name="BookId" ColumnName="BookId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BranchTbls">
+            <EntityTypeMapping TypeName="HotelDBModel.BranchTbl">
+              <MappingFragment StoreEntitySet="BranchTbl">
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="HotelId" ColumnName="HotelId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerTbls">
+            <EntityTypeMapping TypeName="HotelDBModel.CustomerTbl">
+              <MappingFragment StoreEntitySet="CustomerTbl">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FoodTbls">
+            <EntityTypeMapping TypeName="HotelDBModel.FoodTbl">
+              <MappingFragment StoreEntitySet="FoodTbl">
+                <ScalarProperty Name="FoodId" ColumnName="FoodId" />
+                <ScalarProperty Name="FoodName" ColumnName="FoodName" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HotelStatus">
+            <EntityTypeMapping TypeName="HotelDBModel.HotelStatu">
+              <MappingFragment StoreEntitySet="HotelStatus">
+                <ScalarProperty Name="HotelId" ColumnName="HotelId" />
+                <ScalarProperty Name="HotelName" ColumnName="HotelName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvoiceTbls">
+            <EntityTypeMapping TypeName="HotelDBModel.InvoiceTbl">
+              <MappingFragment StoreEntitySet="InvoiceTbl">
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Vat" ColumnName="Vat" />
+                <ScalarProperty Name="GrossAmount" ColumnName="GrossAmount" />
+                <ScalarProperty Name="NetAmount" ColumnName="NetAmount" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReservationTbls">
+            <EntityTypeMapping TypeName="HotelDBModel.ReservationTbl">
+              <MappingFragment StoreEntitySet="ReservationTbl">
+                <ScalarProperty Name="RId" ColumnName="RId" />
+                <ScalarProperty Name="ReservationName" ColumnName="ReservationName" />
+                <ScalarProperty Name="ReservationDate" ColumnName="ReservationDate" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="BookId" ColumnName="BookId" />
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="AgentId" ColumnName="AgentId" />
+                <ScalarProperty Name="SeasonId" ColumnName="SeasonId" />
+                <ScalarProperty Name="CheckIn" ColumnName="CheckIn" />
+                <ScalarProperty Name="CheckOut" ColumnName="CheckOut" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RightInfoes">
+            <EntityTypeMapping TypeName="HotelDBModel.RightInfo">
+              <MappingFragment StoreEntitySet="RightInfo">
+                <ScalarProperty Name="RightId" ColumnName="RightId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleANDRightTbls">
+            <EntityTypeMapping TypeName="HotelDBModel.RoleANDRightTbl">
+              <MappingFragment StoreEntitySet="RoleANDRightTbl">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RightId" ColumnName="RightId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rooms">
+            <EntityTypeMapping TypeName="HotelDBModel.Room">
+              <MappingFragment StoreEntitySet="Room">
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="RoomNumber" ColumnName="RoomNumber" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="RoomType" ColumnName="RoomType" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="Smoking" ColumnName="Smoking" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoomTypes">
+            <EntityTypeMapping TypeName="HotelDBModel.RoomType">
+              <MappingFragment StoreEntitySet="RoomType">
+                <ScalarProperty Name="RoomTypeId" ColumnName="RoomTypeId" />
+                <ScalarProperty Name="RoomName" ColumnName="RoomName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SeasonTbls">
+            <EntityTypeMapping TypeName="HotelDBModel.SeasonTbl">
+              <MappingFragment StoreEntitySet="SeasonTbl">
+                <ScalarProperty Name="SeasonId" ColumnName="SeasonId" />
+                <ScalarProperty Name="SeasonName" ColumnName="SeasonName" />
+                <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceTbls">
+            <EntityTypeMapping TypeName="HotelDBModel.ServiceTbl">
+              <MappingFragment StoreEntitySet="ServiceTbl">
+                <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
+                <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="HotelDBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionTbls">
+            <EntityTypeMapping TypeName="HotelDBModel.TransactionTbl">
+              <MappingFragment StoreEntitySet="TransactionTbl">
+                <ScalarProperty Name="TId" ColumnName="TId" />
+                <ScalarProperty Name="RId" ColumnName="RId" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfos">
+            <EntityTypeMapping TypeName="HotelDBModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfos">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserType" ColumnName="UserType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRoles">
+            <EntityTypeMapping TypeName="HotelDBModel.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
