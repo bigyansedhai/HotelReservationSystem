@@ -25,16 +25,17 @@ namespace HotelReservationSystem.Controllers
         {
             return View();
         }
+        [HttpPost]
         public ActionResult Login(UserInfo item)
         {
-            UserInfo user = _userService.login(item.UserName,item.Password);
+            UserInfo user= _userService.login(item.UserName,item.Password);
             if (user!=null)
             {
                 //fetch user rights
                 List<RoleANDRightTbl> roleANDRights = _userService.GetRoleANDRightTbls(user.UserType);
 
                 //add list of user rights
-                List<String> Rights = new List<string>();
+                List<string> Rights = new List<string>();
                 foreach(RoleANDRightTbl roleANDRight in roleANDRights)
                 {
                     Rights.Add(roleANDRight.RightInfo.Name);
@@ -43,12 +44,64 @@ namespace HotelReservationSystem.Controllers
                 // store all right in session
                 Session["Rights"] = Rights;
 
-               return RedirectToAction("Home", "Index");
+               return RedirectToAction("Index","Home");
 
             }
             else
-            return View();
+            
+                return View();
 
+        }
+
+        [HttpGet]
+        public ActionResult Insert()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Insert(UserInfo item)
+        {
+            //if (ModelState.IsValid == false)
+            //{
+                if(item.UserId >0)
+                {
+                    bool result = _userService.Edit(item);
+                    if(result)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        return View();
+                    }
+                }
+                else
+                {
+                    bool result = _userService.insert(item);
+                    if (result)
+                        return RedirectToAction("Index");
+                    else
+                    {
+                        //List<UserRole> userRoles = _userService.getRo;
+                        return View();
+
+                    }
+                }
+
+
+            //}
+        }
+        [HttpGet]
+        public ActionResult Edit(int Id)
+        {
+            UserInfo userInfo = _userService.GetUser(Id);
+            return View("Insert", userInfo);
+        }
+        public ActionResult Delete(int Id)
+        {
+            _userService.Delete(Id);
+            return RedirectToAction("Index");
         }
 
 

@@ -207,5 +207,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spUserInfoIns" FunctionName="HotelDBModel.Store.spUserInfoIns" />
   </EntityContainerMapping>
 </Mapping>

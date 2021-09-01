@@ -11,7 +11,10 @@ namespace HotelResrvation.DAL.UserRepo
     {
         List<UserInfo> GetUsers();
         UserInfo login(string UserName, string Password);
-        List<RoleANDRightTbl> GetRoleANDRightTbls(int? roleId);
+        List<RoleANDRightTbl> GetRoleANDRightTbls(int ? roleId);
         bool insert(UserInfo item);
+        UserInfo GetUser(int Id);
+        bool Edit(UserInfo userInfo);
+        bool Delete(int Id);
     }
 }

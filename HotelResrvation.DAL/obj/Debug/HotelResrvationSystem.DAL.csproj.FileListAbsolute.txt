@@ -13,3 +13,18 @@ C:\Users\bigyan\source\repos\HotelResrvation.DAL\bin\Debug\System.Data.SqlServer
 C:\Users\bigyan\source\repos\HotelResrvation.DAL\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\bigyan\source\repos\HotelResrvation.DAL\bin\Debug\EntityFramework.SqlServerCompact.xml
 C:\Users\bigyan\source\repos\HotelResrvation.DAL\obj\Debug\HotelResrvationSystem.DAL.csproj.AssemblyReference.cache
+C:\Users\bigyan\source\repos\New folder\HotelResrvation.DAL\bin\Debug\HotelResrvation.DAL.dll.config
+C:\Users\bigyan\source\repos\New folder\HotelResrvation.DAL\bin\Debug\HotelResrvation.DAL.dll
+C:\Users\bigyan\source\repos\New folder\HotelResrvation.DAL\bin\Debug\HotelResrvation.DAL.pdb
+C:\Users\bigyan\source\repos\New folder\HotelResrvation.DAL\bin\Debug\EntityFramework.dll
+C:\Users\bigyan\source\repos\New folder\HotelResrvation.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\bigyan\source\repos\New folder\HotelResrvation.DAL\bin\Debug\EntityFramework.SqlServerCompact.dll
+C:\Users\bigyan\source\repos\New folder\HotelResrvation.DAL\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\bigyan\source\repos\New folder\HotelResrvation.DAL\bin\Debug\EntityFramework.xml
+C:\Users\bigyan\source\repos\New folder\HotelResrvation.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\bigyan\source\repos\New folder\HotelResrvation.DAL\bin\Debug\EntityFramework.SqlServerCompact.xml
+C:\Users\bigyan\source\repos\New folder\HotelResrvation.DAL\obj\Debug\HotelResrvationSystem.DAL.csproj.AssemblyReference.cache
+C:\Users\bigyan\source\repos\New folder\HotelResrvation.DAL\obj\Debug\HotelResrvationSystem.DAL.csproj.CoreCompileInputs.cache
+C:\Users\bigyan\source\repos\New folder\HotelResrvation.DAL\obj\Debug\HotelResrvationSystem.DAL.csproj.CopyComplete
+C:\Users\bigyan\source\repos\New folder\HotelResrvation.DAL\obj\Debug\HotelResrvation.DAL.dll
+C:\Users\bigyan\source\repos\New folder\HotelResrvation.DAL\obj\Debug\HotelResrvation.DAL.pdb

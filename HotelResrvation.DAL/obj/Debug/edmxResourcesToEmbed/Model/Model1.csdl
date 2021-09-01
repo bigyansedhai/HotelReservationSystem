@@ -549,5 +549,8 @@
       <End Role="UserRole" EntitySet="UserRoles" />
       <End Role="UserInfos" EntitySet="UserInfos" />
     </AssociationSet>
+    <FunctionImport Name="spUserInfoIns" ReturnType="Collection(String)">
+      <Parameter Name="json" Mode="InOut" Type="String" />
+    </FunctionImport>
   </EntityContainer>
 </Schema>

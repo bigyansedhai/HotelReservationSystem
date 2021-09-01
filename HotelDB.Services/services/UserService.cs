@@ -12,8 +12,13 @@ namespace HotelDB.Services.services
     {
         List<UserInfo>GetUsers();
         UserInfo login(string UserName, string Password);
-        List<RoleANDRightTbl> GetRoleANDRightTbls(int? roleId);
+        List<RoleANDRightTbl> GetRoleANDRightTbls(int?roleId);
+
+        
         bool insert(UserInfo item);
+        UserInfo GetUser(int Id);
+        bool Edit(UserInfo userInfo);
+        bool Delete(int Id);
     }
     public class UserService:IUserService
     {
@@ -30,13 +35,29 @@ namespace HotelDB.Services.services
         {
             return _userRepo.login(UserName,Password);
         }
-        public List<RoleANDRightTbl> GetRoleANDRightTbls(int? roleId)
+        public List<RoleANDRightTbl> GetRoleANDRightTbls(int ? roleId)
         {
             return _userRepo.GetRoleANDRightTbls(roleId);
         }
+       
         public bool insert(UserInfo item)
         {
             return _userRepo.insert(item);
+        }
+
+        public UserInfo GetUser(int Id)
+        {
+            return _userRepo.GetUser(Id);
+        }
+
+        public bool Edit(UserInfo userInfo)
+        {
+            return _userRepo.Edit(userInfo);
+        }
+
+        public bool Delete(int Id)
+        {
+            return _userRepo.Delete(Id);
         }
     }
 

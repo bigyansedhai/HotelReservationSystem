@@ -6,7 +6,11 @@
     <title>@ViewBag.Title - Welcome Hotel Reservvation Portal</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+   
 </head>
+@{
+    List<string>Rights =(List<string>)Session["Rights"];
+}      
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -20,10 +24,22 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Hotel","Index","Hotel")</li>
+                    @if (Session["Rights"] != null)
+                    {
+                        if (Rights.Contains("menu.all"))
+                        {
+                            <li>@Html.ActionLink("Hotel", "Index", "Hotel")</li>
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        }
+
+                    }
+
+
                 </ul>
             </div>
         </div>

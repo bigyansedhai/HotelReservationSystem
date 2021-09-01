@@ -12,6 +12,8 @@ namespace HotelResrvation.DAL.Model
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class HotelDBEntities : DbContext
     {
@@ -43,5 +45,10 @@ namespace HotelResrvation.DAL.Model
         public virtual DbSet<TransactionTbl> TransactionTbls { get; set; }
         public virtual DbSet<UserInfo> UserInfos { get; set; }
         public virtual DbSet<UserRole> UserRoles { get; set; }
+    
+        public virtual ObjectResult<string> spUserInfoIns(ObjectParameter json)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("spUserInfoIns", json);
+        }
     }
 }
