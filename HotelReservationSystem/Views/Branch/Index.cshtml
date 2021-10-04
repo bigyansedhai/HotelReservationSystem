@@ -1,0 +1,82 @@
+﻿@model List<HotelResrvation.DAL.Model.BranchTbl>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<div class="container-fluid" style="background-color:aqua;">
+    <a class="btn btn-primary" href="~/Branch/Insert" style="margin-left:1060px; margin-top:1px;"><span class="glyphicon glyphicon-plus"></span>Add</a>
+
+</div>
+<h2>Branch List</h2>
+
+<table id="BranchStatus" class="ui celled table">
+    <thead>
+        <tr>
+            <th>BranchId</th>
+            <th>BranchName</th>
+            <th>HotelId</th>
+            <th>Address</th>
+            <th>city</th>
+            <th>PhoneNumber</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.BranchId</td>
+            <td>@item.BranchName</td>
+            <td>@item.HotelId</td>
+            <td>@item.Address</td>
+            <td>@item.City</td>
+            <td>@item.PhoneNumber</td>
+            <td>
+                <button class="btn btn-default"><span class="glyphicon glyphicon-eye-open"></span></button>
+                <button class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></button>
+                <button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+            </td>
+        </tr>
+        }
+
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>BranchId</th>
+            <th>BranchName</th>
+            <th>HotelId</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>PhoneNumber</th>
+            <th>Action</th>
+        </tr>
+    </tfoot>
+</table>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.css" />
+@section scripts
+{
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#BranchStatus').DataTable(
+                //{
+                //    "ajax": {
+                //        "url": "/Hotel/Index",
+                //        "type": "GET",
+                //        "dataType":"json"
+                //    },
+                //    "columns": [
+                //        { "data":"HotelId" },
+                //        { "data":"HotelName" },
+                //        { "data":"Action" }
+                //    ]
+                //}
+
+            );
+        })
+    </script>
+  }
+

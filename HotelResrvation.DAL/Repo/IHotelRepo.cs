@@ -10,5 +10,6 @@ namespace HotelResrvation.DAL.UserRepo
     public interface IHotelRepo
     {
         List<HotelStatu> GetHotels();
+        bool insert(HotelStatu item);
     }
 }

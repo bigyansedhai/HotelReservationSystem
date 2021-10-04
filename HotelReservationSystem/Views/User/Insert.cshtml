@@ -6,35 +6,41 @@
 
 <h2 class="text-primary" style="font-family:'Times New Roman';font-display:block;">Add Form</h2>
 @Html.HiddenFor(x => x.UserId);
-@using (Html.BeginForm("Insert","User", FormMethod.Post))
+@using (Html.BeginForm("Insert", "User", FormMethod.Post))
 {
     <div class="col">
         <label for="InputId" class="form-label">User Id</label>
         @Html.TextBoxFor(m => m.UserId, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.UserId)
     </div>
     <div class="mb-3">
         <label for="InputAddress" class="form-label">Address</label>
         @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Address)
     </div>
     <div class="mb-3">
         <label for="InputPhoneNumber" class="form-label">PhoneNumber</label>
         @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.PhoneNumber)
     </div>
     <div class="mb-3">
         <label for="InputUsername" class="form-label">UserName</label>
         @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.UserName)
     </div>
     <div class="mb-3">
         <label for="InputPassword" class="form-label">Password</label>
         @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Password)
     </div>
     <div class="mb-3">
-        <label class="form-label" for="InputUserType">UserType</label>
-        @Html.TextBoxFor(m => m.UserType, new { @class = "form-control" })
+        <label class="form-label" for="InputUserType">User Type</label>
+        @Html.DropDownListFor(m => m.UserType, ViewData["roles"] as SelectList, new { @class = "form-control" })
+        
     </div>
     <hr />
     <div>
-        @if(Model==null)
+        @if (Model == null)  
         {
             <button type="submit" value="submit" class="btn btn-primary">Add</button>
         }
@@ -43,6 +49,10 @@
             <button type="submit" value="submit" class="btn btn-primary">Update</button>
         }
         <button type="submit" class="btn btn-primary">Reset</button>
+    </div>
+    <hr/>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
     </div>
 
 }

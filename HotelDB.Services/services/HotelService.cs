@@ -20,5 +20,10 @@ namespace HotelDB.Services.services
         {
             return _hotelRepo.GetHotels();
         }
+        public bool insert(HotelStatu item)
+        {
+            return _hotelRepo.insert(item);
+
+        }
     }
 }

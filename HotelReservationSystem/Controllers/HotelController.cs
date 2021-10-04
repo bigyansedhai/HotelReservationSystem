@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HotelDB.Services.services;
+using HotelResrvation.DAL.Model;
 
 namespace HotelReservationSystem.Controllers
 {
@@ -34,12 +35,31 @@ namespace HotelReservationSystem.Controllers
         //{
         //  ViewBag.Massage ="This is Branch List Of Hotel Portfolia";
         //   List<BranchTbl> ist = new List<BranchTbl>();
-       
+
         //using (HotelDBEntities2 _hotelDBEntities2 = new HotelDBEntities2())
         //{
         //   ist = _hotelDBEntities2.BranchTbls.ToList();
         //}
         //return View(ist);
         //}
+        [HttpGet]
+        public ActionResult insert()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Insert(HotelStatu item)
+        {
+            bool result = _hotelService.insert(item);
+            if (result)
+                return RedirectToAction("Index");
+            else
+            {
+               
+                return View();
+
+            }
+        }
     }
+   
 }

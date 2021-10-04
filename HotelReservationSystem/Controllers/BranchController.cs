@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelDB.Services.services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,19 @@ namespace HotelReservationSystem.Controllers
 {
     public class BranchController : Controller
     {
+        private IBranchService _branchService;
+
+        public BranchController(IBranchService branchService)
+        {
+            _branchService = branchService;
+        }
         // GET: Branch
+        [HttpGet]
+        [Route("Branch/Index")]
         public ActionResult Index()
         {
-            return View();
+            var dt = _branchService.GetBranches();
+            return View(dt);
         }
     }
 }

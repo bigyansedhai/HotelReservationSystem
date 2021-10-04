@@ -10,5 +10,6 @@ namespace HotelDB.Services.services
     public interface IHotelService
     {
         List<HotelStatu> GetHotels();
+        bool insert(HotelStatu item);
     }
 }

@@ -1,4 +1,5 @@
 using HotelDB.Services.services;
+using HotelResrvation.DAL.Repo;
 using HotelResrvation.DAL.UserRepo;
 using System.Web.Mvc;
 using Unity;
@@ -16,10 +17,14 @@ namespace HotelReservationSystem
             // it is NOT necessary to register your controllers
 
             // e.g. container.RegisterType<ITestService, TestService>();
+            container.RegisterType<IBranchService, BranchServices>();
+            container.RegisterType<IBranch,BranchRepo>();
             container.RegisterType<IHotelRepo,HotelRepo>();
             container.RegisterType<IHotelService, HotelService>();
             container.RegisterType<IUserRepo, UserRepo>();
             container.RegisterType<IUserService, UserService>();
+            container.RegisterType<IUserRoleRepo, UserRoleRepo>();
+            container.RegisterType<IUserRoleService, UserRoleService>();
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }

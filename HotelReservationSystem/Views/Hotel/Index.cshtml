@@ -3,7 +3,10 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="container-fluid" style="background-color:aqua;">
+    <a class="btn btn-primary" href="~/Hotel/Insert" style="margin-left:1060px; margin-top:1px;"><span class="glyphicon glyphicon-plus"></span>Add</a>
 
+</div>
 <h2>Hotel List</h2>
 
 <table id="hotelStatus" class="ui celled table">
@@ -42,7 +45,7 @@
 @section scripts
 {
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.js"></script>
-     <script type="text/javascript">
+    <script type="text/javascript">
         $(document).ready(function () {
             $('#hotelStatus').DataTable(
                 //{
