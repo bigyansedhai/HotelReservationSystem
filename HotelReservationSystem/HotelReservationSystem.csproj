@@ -431,7 +431,10 @@
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\User\Insert.cshtml" />
     <Content Include="Views\Hotel\insert.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Branch\Index.cshtml" />
+=======
+>>>>>>> dad4e7b6b7dfe35686609bd325b3538b252d3ea3
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
