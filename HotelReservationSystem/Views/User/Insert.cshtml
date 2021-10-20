@@ -6,6 +6,7 @@
 
 <h2 class="text-primary" style="font-family:'Times New Roman';font-display:block;">Add Form</h2>
 @Html.HiddenFor(x => x.UserId);
+
 @using (Html.BeginForm("Insert", "User", FormMethod.Post))
 {
     <div class="col">
@@ -40,11 +41,7 @@
     </div>
     <hr />
     <div>
-<<<<<<< HEAD
-        @if (Model == null)  
-=======
         @if (Model == null)
->>>>>>> dad4e7b6b7dfe35686609bd325b3538b252d3ea3
         {
             <button type="submit" value="submit" class="btn btn-primary">Add</button>
         }
@@ -60,31 +57,3 @@
     </div>
 
 }
-@*<form class="btn btn-primary">
-        <div class="mb-3">
-            <label for="InputAddress" class="form-label">Address</label>
-            <input type="text" class="form-control" id="Address">
-        </div>
-        <div class="mb-3">
-            <label for="InputPhoneNumber" class="form-label">PhoneNumber</label>
-            <input type="text" class="form-control" id="PhoneNumber">
-        </div>
-        <div class="mb-3">
-            <label for="InputUsername" class="form-label">UserName</label>
-            <input type="text" class="form-control" id="UserName">
-        </div>
-        <div class="mb-3">
-            <label for="InputPassword" class="form-label">Password</label>
-            <input type="password" class="form-control" id="Password">
-        </div>
-        <div class="mb-3">
-            <label class="form-label" for="InputUserType">UserType</label>
-            <input type="text" class="form-control" id="UserType">
-        </div>
-        <hr />
-        <div>
-            <button type="submit" class="btn btn-primary">Add</button>
-            <button type="submit" class="btn btn-primary">Reset</button>
-        </div>
-
-    </form>*@

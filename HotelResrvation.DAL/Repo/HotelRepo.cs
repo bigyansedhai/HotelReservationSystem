@@ -1,5 +1,6 @@
 ﻿using HotelResrvation.DAL.Model;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,8 +13,9 @@ namespace HotelResrvation.DAL.UserRepo
         public List<HotelStatu> GetHotels()
         {
             List<HotelStatu> hotelStatus = new List<HotelStatu>();
-            using (HotelDBEntities _hotelDBEntities = new HotelDBEntities())
+            using (HotelDBEntities1 _hotelDBEntities = new HotelDBEntities1())
             {
+                _hotelDBEntities.Configuration.ProxyCreationEnabled = false;
                 hotelStatus = _hotelDBEntities.HotelStatus.ToList();
             }
             return hotelStatus;
@@ -23,7 +25,7 @@ namespace HotelResrvation.DAL.UserRepo
         {
             bool result;
 
-            using (HotelDBEntities _hotelDBEntities = new HotelDBEntities())
+            using (HotelDBEntities1 _hotelDBEntities = new HotelDBEntities1())
             {
                 HotelStatu hotelStatu = _hotelDBEntities.HotelStatus.Add(item);
                 int count = _hotelDBEntities.SaveChanges();
@@ -37,7 +39,55 @@ namespace HotelResrvation.DAL.UserRepo
             return result;
 
         }
+
+        public HotelStatu GetHotel (int Id)
+        {
+            HotelStatu hotelStatu = new HotelStatu();
+            using (HotelDBEntities1 _hotelDBEntities = new HotelDBEntities1())
+            {
+                hotelStatu = _hotelDBEntities.HotelStatus.Find(Id);
+            }
+            return hotelStatu;
         }
+
+        public bool Edit(HotelStatu hotelStatu)
+        {
+            bool result;
+            using (HotelDBEntities1 _hotelDBEntities = new HotelDBEntities1())
+            {
+                _hotelDBEntities.Entry(hotelStatu).State = System.Data.Entity.EntityState.Modified;
+                int count = _hotelDBEntities.SaveChanges();
+                if (count > 0)
+                {
+                    result = true;
+                }
+                else
+                    result = false;
+
+            }
+            return result;
+
+        }
+
+        public bool Delete(int Id)
+        {
+            bool result;
+            using (HotelDBEntities1 _hotelDBEntities = new HotelDBEntities1())
+            {
+               HotelStatu hotelStatu = _hotelDBEntities.HotelStatus.Find(Id);
+              
+                _hotelDBEntities.HotelStatus.Remove(hotelStatu);
+                int count = _hotelDBEntities.SaveChanges();
+                if (count > 0)
+                {
+                    result = true;
+                }
+                else
+                    result = false;
+            }
+            return result;
+        }
+    }
 
     
 }

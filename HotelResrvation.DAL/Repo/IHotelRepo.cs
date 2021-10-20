@@ -11,5 +11,9 @@ namespace HotelResrvation.DAL.UserRepo
     {
         List<HotelStatu> GetHotels();
         bool insert(HotelStatu item);
+
+        HotelStatu GetHotel(int id);
+        bool Edit(HotelStatu hotelStatu);
+        bool Delete(int Id);
     }
 }

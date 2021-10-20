@@ -11,7 +11,7 @@ namespace HotelResrvation.DAL.UserRepo
         public List<UserInfo> GetUsers()
         {
             List<UserInfo> _userInfos = new List<UserInfo>();
-            using (HotelDBEntities _hotelDBEntities = new HotelDBEntities())
+            using (HotelDBEntities1 _hotelDBEntities = new HotelDBEntities1())
             {
                 _userInfos = _hotelDBEntities.UserInfos.ToList();
             }
@@ -20,7 +20,7 @@ namespace HotelResrvation.DAL.UserRepo
 
         public UserInfo login(string UserName, string Password)
         {
-            using (HotelDBEntities _hotelDBEntities = new HotelDBEntities())
+            using (HotelDBEntities1 _hotelDBEntities = new HotelDBEntities1())
             {
                 return _hotelDBEntities.UserInfos.Where(x => x.UserName.Equals(UserName) && x.Password.Equals(Password)).SingleOrDefault();
             }
@@ -29,7 +29,7 @@ namespace HotelResrvation.DAL.UserRepo
         public List<RoleANDRightTbl> GetRoleANDRightTbls(int? roleId)
         {
             List<RoleANDRightTbl> roleANDRights = new List<RoleANDRightTbl>();
-            using (HotelDBEntities _hotelDBEntities = new HotelDBEntities())
+            using (HotelDBEntities1 _hotelDBEntities = new HotelDBEntities1())
             {
                 roleANDRights = _hotelDBEntities.RoleANDRightTbls.Include("RightInfo").Where(x => x.RoleId == roleId).ToList();
             }
@@ -39,8 +39,9 @@ namespace HotelResrvation.DAL.UserRepo
         public bool insert(UserInfo item)
         {
            bool result;
+           
             
-            using (HotelDBEntities _hotelDBEntities = new HotelDBEntities())
+            using (HotelDBEntities1 _hotelDBEntities = new HotelDBEntities1())
             {
            UserInfo userInfos =_hotelDBEntities.UserInfos.Add(item);
                 int count = _hotelDBEntities.SaveChanges();
@@ -76,7 +77,7 @@ namespace HotelResrvation.DAL.UserRepo
         public UserInfo GetUser(int Id)
         {
             UserInfo userInfo = new UserInfo();
-            using (HotelDBEntities _hotelDBEntities = new HotelDBEntities())
+            using (HotelDBEntities1 _hotelDBEntities = new HotelDBEntities1())
             {
                 userInfo = _hotelDBEntities.UserInfos.Find(Id);
             }
@@ -86,7 +87,7 @@ namespace HotelResrvation.DAL.UserRepo
         public bool Edit(UserInfo userInfo)
         {
             bool result;
-            using (HotelDBEntities _hotelDBEntities = new HotelDBEntities())
+            using (HotelDBEntities1 _hotelDBEntities = new HotelDBEntities1())
             {
                 _hotelDBEntities.Entry(userInfo).State = System.Data.Entity.EntityState.Modified;
                 int count = _hotelDBEntities.SaveChanges();
@@ -105,7 +106,7 @@ namespace HotelResrvation.DAL.UserRepo
         public bool Delete(int Id)
         {
             bool result;
-            using (HotelDBEntities _hotelDBEntities = new HotelDBEntities())
+            using (HotelDBEntities1 _hotelDBEntities = new HotelDBEntities1())
             {
                 UserInfo userInfo = _hotelDBEntities.UserInfos.Find(Id);
                 _hotelDBEntities.UserInfos.Remove(userInfo);

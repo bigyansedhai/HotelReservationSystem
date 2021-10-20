@@ -43,8 +43,10 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="services\BranchService.cs" />
     <Compile Include="services\HotelService.cs" />
     <Compile Include="services\IHotelService.cs" />
+    <Compile Include="services\UserRoleService.cs" />
     <Compile Include="services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>

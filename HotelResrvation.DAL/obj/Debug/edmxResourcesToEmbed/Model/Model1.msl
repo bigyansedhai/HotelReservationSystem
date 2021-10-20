@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="HotelDBModelStoreContainer" CdmEntityContainer="HotelDBEntities">
+  <EntityContainerMapping StorageEntityContainer="HotelDBModelStoreContainer" CdmEntityContainer="HotelDBEntities1">
     <EntitySetMapping Name="AgentTbls">
       <EntityTypeMapping TypeName="HotelDBModel.AgentTbl">
         <MappingFragment StoreEntitySet="AgentTbl">
@@ -72,6 +72,8 @@
         <MappingFragment StoreEntitySet="HotelStatus">
           <ScalarProperty Name="HotelId" ColumnName="HotelId" />
           <ScalarProperty Name="HotelName" ColumnName="HotelName" />
+          <ScalarProperty Name="Hotellogo" ColumnName="Hotellogo" />
+          <ScalarProperty Name="STAR" ColumnName="STAR" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -207,6 +209,5 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="spUserInfoIns" FunctionName="HotelDBModel.Store.spUserInfoIns" />
   </EntityContainerMapping>
 </Mapping>

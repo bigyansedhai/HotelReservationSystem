@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="fee7965ada664cdebd5aba0cf54cc7a5" Name="Diagram1">
+      <Diagram DiagramId="d68f645e78204e9faa9f24901ffb4c4c" Name="Diagram1">
         <EntityTypeShape EntityType="HotelDBModel.AgentTbl" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelDBModel.Booking" Width="1.5" PointX="8.25" PointY="11" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelDBModel.BranchTbl" Width="1.5" PointX="3.75" PointY="2.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelDBModel.CustomerTbl" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelDBModel.FoodTbl" Width="1.5" PointX="5.75" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelDBModel.HotelStatu" Width="1.5" PointX="1.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelDBModel.HotelStatu" Width="1.5" PointX="1.5" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelDBModel.InvoiceTbl" Width="1.5" PointX="5.25" PointY="13.875" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelDBModel.ReservationTbl" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelDBModel.RightInfo" Width="1.5" PointX="5.75" PointY="18" IsExpanded="true" />

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using HotelResrvation.DAL.Model;
 using HotelResrvation.DAL.UserRepo;
@@ -14,7 +15,7 @@ namespace HotelDB.Services.services
         UserInfo login(string UserName, string Password);
         List<RoleANDRightTbl> GetRoleANDRightTbls(int?roleId);
 
-        
+
         bool insert(UserInfo item);
         UserInfo GetUser(int Id);
         bool Edit(UserInfo userInfo);

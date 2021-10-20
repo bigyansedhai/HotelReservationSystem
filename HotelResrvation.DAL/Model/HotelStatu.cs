@@ -11,7 +11,8 @@ namespace HotelResrvation.DAL.Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class HotelStatu
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +22,11 @@ namespace HotelResrvation.DAL.Model
         }
     
         public int HotelId { get; set; }
+        [Required]
         public string HotelName { get; set; }
+        public string Hotellogo { get; set; }
+        [Required]
+        public string STAR { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BranchTbl> BranchTbls { get; set; }

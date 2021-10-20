@@ -34,10 +34,12 @@ C:\Users\bigyan\source\repos\HotelReservation\HotelReservationSystem\HotelResrva
 C:\Users\bigyan\source\repos\HotelReservation\HotelReservationSystem\HotelResrvation.DAL\bin\Debug\EntityFramework.dll
 C:\Users\bigyan\source\repos\HotelReservation\HotelReservationSystem\HotelResrvation.DAL\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\bigyan\source\repos\HotelReservation\HotelReservationSystem\HotelResrvation.DAL\bin\Debug\EntityFramework.SqlServerCompact.dll
+C:\Users\bigyan\source\repos\HotelReservation\HotelReservationSystem\HotelResrvation.DAL\bin\Debug\Newtonsoft.Json.dll
 C:\Users\bigyan\source\repos\HotelReservation\HotelReservationSystem\HotelResrvation.DAL\bin\Debug\System.Data.SqlServerCe.dll
 C:\Users\bigyan\source\repos\HotelReservation\HotelReservationSystem\HotelResrvation.DAL\bin\Debug\EntityFramework.xml
 C:\Users\bigyan\source\repos\HotelReservation\HotelReservationSystem\HotelResrvation.DAL\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\bigyan\source\repos\HotelReservation\HotelReservationSystem\HotelResrvation.DAL\bin\Debug\EntityFramework.SqlServerCompact.xml
+C:\Users\bigyan\source\repos\HotelReservation\HotelReservationSystem\HotelResrvation.DAL\bin\Debug\Newtonsoft.Json.xml
 C:\Users\bigyan\source\repos\HotelReservation\HotelReservationSystem\HotelResrvation.DAL\obj\Debug\HotelResrvationSystem.DAL.csproj.AssemblyReference.cache
 C:\Users\bigyan\source\repos\HotelReservation\HotelReservationSystem\HotelResrvation.DAL\obj\Debug\HotelResrvationSystem.DAL.csproj.CoreCompileInputs.cache
 C:\Users\bigyan\source\repos\HotelReservation\HotelReservationSystem\HotelResrvation.DAL\obj\Debug\HotelResrvationSystem.DAL.csproj.CopyComplete

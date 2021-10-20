@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HotelDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HotelDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AgentTbl">
           <Key>
             <PropertyRef Name="AgentId" />
@@ -72,6 +72,8 @@
           </Key>
           <Property Name="HotelId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="HotelName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Hotellogo" Type="varchar(max)" />
+          <Property Name="STAR" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="InvoiceTbl">
           <Key>
@@ -421,154 +423,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_Customer_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="sp_Update_Customer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <Function Name="spAgent_Proc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="In" />
-        </Function>
-        <Function Name="SpBookingIns" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="InOut" />
-        </Function>
-        <Function Name="SpBookingUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="InOut" />
-        </Function>
-        <Function Name="SpBranchIns" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="InOut" />
-        </Function>
-        <Function Name="spCustomer_Proc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="In" />
-        </Function>
-        <Function Name="spDeleteAgentTbl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="In" />
-        </Function>
-        <Function Name="SpDeleteBookId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="In" />
-        </Function>
-        <Function Name="SpDeleteBranchTbl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="In" />
-        </Function>
-        <Function Name="SpDeleteFoodTbl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="In" />
-        </Function>
-        <Function Name="spDeleteHotel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="nvarchar(max)" Mode="In" />
-        </Function>
-        <Function Name="SpDeleteInvoiceTbl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="In" />
-        </Function>
-        <Function Name="SpDeleteReservationTbl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="In" />
-        </Function>
-        <Function Name="SpDeleteRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="In" />
-        </Function>
-        <Function Name="SpDeleteSeasonTbl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="In" />
-        </Function>
-        <Function Name="SpDeleteServiceTbl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="In" />
-        </Function>
-        <Function Name="SpDeleteTransactionTbl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="In" />
-        </Function>
-        <Function Name="SpDeleteUserTbl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="In" />
-        </Function>
-        <Function Name="spFoodIns" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="InOut" />
-        </Function>
-        <Function Name="spHotel_Proc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="nvarchar(max)" Mode="In" />
-        </Function>
-        <Function Name="spInvoiceIns" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="InOut" />
-        </Function>
-        <Function Name="spReservationIns" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="InOut" />
-        </Function>
-        <Function Name="SpRoomIns" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="InOut" />
-        </Function>
-        <Function Name="SpSeasonIns" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="InOut" />
-        </Function>
-        <Function Name="SpSeasonUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="InOut" />
-        </Function>
-        <Function Name="spServiceIns" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="InOut" />
-        </Function>
-        <Function Name="spTransactionIns" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="InOut" />
-        </Function>
-        <Function Name="spUpdateAgent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="In" />
-        </Function>
-        <Function Name="SpUpdateBranch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="InOut" />
-        </Function>
-        <Function Name="spUpdateFood" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="InOut" />
-        </Function>
-        <Function Name="SpUpdateHotel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="nvarchar(max)" Mode="In" />
-        </Function>
-        <Function Name="spUpdateInvoice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="InOut" />
-        </Function>
-        <Function Name="spUpdateReservation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="InOut" />
-        </Function>
-        <Function Name="SpUpdateRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="InOut" />
-        </Function>
-        <Function Name="spUpdateService" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="InOut" />
-        </Function>
-        <Function Name="spUpdateTransaction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="InOut" />
-        </Function>
-        <Function Name="spUpdateUserInfos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="InOut" />
-        </Function>
-        <Function Name="spUserInfoIns" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="json" Type="varchar(max)" Mode="InOut" />
-        </Function>
         <EntityContainer Name="HotelDBModelStoreContainer">
           <EntitySet Name="AgentTbl" EntityType="Self.AgentTbl" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
@@ -665,8 +519,7 @@
             <End Role="CustomerTbl" EntitySet="CustomerTbl" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HotelDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -749,6 +602,8 @@
           </Key>
           <Property Name="HotelId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="HotelName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Hotellogo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="STAR" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="BranchTbls" Relationship="Self.FK__BranchTbl__Hotel__540C7B00" FromRole="HotelStatus" ToRole="BranchTbl" />
         </EntityType>
         <EntityType Name="InvoiceTbl">
@@ -1124,7 +979,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="HotelDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="HotelDBEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AgentTbls" EntityType="Self.AgentTbl" />
           <EntitySet Name="Bookings" EntityType="Self.Booking" />
           <EntitySet Name="BranchTbls" EntityType="Self.BranchTbl" />
@@ -1219,16 +1074,13 @@
             <End Role="UserRole" EntitySet="UserRoles" />
             <End Role="UserInfos" EntitySet="UserInfos" />
           </AssociationSet>
-          <FunctionImport Name="spUserInfoIns" ReturnType="Collection(String)">
-            <Parameter Name="json" Mode="InOut" Type="String" />
-          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="HotelDBModelStoreContainer" CdmEntityContainer="HotelDBEntities">
+        <EntityContainerMapping StorageEntityContainer="HotelDBModelStoreContainer" CdmEntityContainer="HotelDBEntities1">
           <EntitySetMapping Name="AgentTbls">
             <EntityTypeMapping TypeName="HotelDBModel.AgentTbl">
               <MappingFragment StoreEntitySet="AgentTbl">
@@ -1300,6 +1152,8 @@
               <MappingFragment StoreEntitySet="HotelStatus">
                 <ScalarProperty Name="HotelId" ColumnName="HotelId" />
                 <ScalarProperty Name="HotelName" ColumnName="HotelName" />
+                <ScalarProperty Name="Hotellogo" ColumnName="Hotellogo" />
+                <ScalarProperty Name="STAR" ColumnName="STAR" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1435,7 +1289,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="spUserInfoIns" FunctionName="HotelDBModel.Store.spUserInfoIns" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

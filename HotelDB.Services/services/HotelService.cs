@@ -12,18 +12,37 @@ namespace HotelDB.Services.services
     {
 
         private IHotelRepo _hotelRepo;
+        
+        
         public HotelService( IHotelRepo hotelRepo)
         {
             _hotelRepo = hotelRepo;
         }
+
+        public bool Edit(HotelStatu hotelStatu)
+        {
+            return _hotelRepo.Edit(hotelStatu);
+        }
+
         public List<HotelStatu> GetHotels()
         {
             return _hotelRepo.GetHotels();
         }
+
+        public HotelStatu GetHotel(int Id)
+        {
+            return _hotelRepo.GetHotel(Id);
+        }
+
         public bool insert(HotelStatu item)
         {
             return _hotelRepo.insert(item);
 
+        }
+
+        public bool Delete(int Id)
+        {
+            return  _hotelRepo.Delete(Id);
         }
     }
 }

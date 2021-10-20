@@ -17,7 +17,7 @@ namespace HotelReservationSystem
             // it is NOT necessary to register your controllers
 
             // e.g. container.RegisterType<ITestService, TestService>();
-            container.RegisterType<IBranchService, BranchServices>();
+            container.RegisterType<IBranchService, BranchService>();
             container.RegisterType<IBranch,BranchRepo>();
             container.RegisterType<IHotelRepo,HotelRepo>();
             container.RegisterType<IHotelService, HotelService>();
